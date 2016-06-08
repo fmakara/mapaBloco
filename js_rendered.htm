@@ -1,0 +1,204 @@
+﻿<html>
+<head>
+<style>
+.sala {
+	stroke-width:3px;
+	stroke:#000;
+	fill:rgba(255,255,255,0.8);
+}
+</style>
+<script>
+function g(i){return document.getElementById(i);}
+function h(i,h){document.getElementById(i).innerHTML += h;}
+var a=[
+["pki","sala","pk9",[1150,760,25,25],200,"Mestrado"],
+["pki","sala","pk10",[1145,760,1200,25],200,"PK10"],
+["pki","sala","pk25",[365,760,2370,25],150,"PET"],
+["pki","sala","pk26",[365,497,2760,25],70,"WC Masc"],
+["pki","sala","pk27",[365,497,3150,25],70,"EMJEL"],
+["pki","sala","pk28",[1150,760,3540,25],200,"PK09"],
+["pki","sala","pk29",[160,810,1037,810,1037,930,1350,930,1350,1175,160,1175],120,"DAEL"],
+["pki","sala","pk30",[365,370,1590,1200],70,"WC Fem"],
+["pki","sala","pk31",[365,370,1980,1200],70,"Limpeza"],
+["pki","sala","pk32",[755,370,2370,1200],100,"Xerox"],
+["pki","sala","chao0",[1375,1175,4310,1175,4310,810,3515,810,3515,547,2760,547,2760,785,3150,785,3150,810,1060,810,1060,910,1375,910]],
+["pk","sala","chao1",[420,547,4255,547,4255,25,4395,25,4395,782,3515,782,3515,1197,3337,1197,3337,923,3150,923,3150,782,1565,782,1565,923,1378,923,1378,1197,1200,1197,1200,782,420,782]],
+["pk","sala","chao2",[3515,3560,3515,1257,3337,1257,3337,1783,3150,1783,3150,3150,1565,3150,1565,1783,1378,1783,1378,1257,1200,1257,1200,3560,1565,3560,1565,3385,3150,3385,3150,3560]],
+["pk","sala","pk0",[370,757,25,25],100,"Gab 1"],
+["pk","sala","pk1",[365,497,420,25],100,"Gab 2"],
+["pk","sala","pk2",[365,497,810,25],100,"Gab 3"],
+["pk","sala","pk3",[365,497,1200,25],100,"Gab 4"],
+["pk","sala","pk4",[365,497,1590,25],100,"Gab 5"],
+["pk","sala","pk5",[365,497,1980,25],100,"Gab 6"],
+["pk","sala","pk6",[365,497,2370,25],100,"Gab 7"],
+["pk","sala","pk7",[365,497,2760,25],100,"Gab 8"],
+["pk","sala","pk8",[365,497,3150,25],100,"Gab 9"],
+["pk","sala","pk9",[365,497,3540,25],100,"Gab 10"],
+["pk","sala","pk10",[300,497,3930,25],100,"Gab 11"],
+["pk","sala","pk11",[270,250,4420,25],80,"Gab 12"],
+["pk","sala","pk12",[270,250,4420,277],80,"Gab 13"],
+["pk","sala","pk13",[270,250,4420,530],80,"Gab 14"],
+["pk","sala","pk2",[1015,755,160,807],200,"PK02"],
+["pk","sala","pk4",[1015,755,160,1587],200,"PK04"],
+["pk","sala","pk6",[1015,755,160,2367],200,"PK06"],
+["pk","sala","pk8",[1015,760,160,3147],200,"PK08"],
+["pk","sala","pk1",[1015,755,3540,807],200,"PK01"],
+["pk","sala","pk3",[1015,755,3540,1587],200,"PK03"],
+["pk","sala","pk5",[1015,755,3540,2367],200,"PK05"],
+["pk","sala","pk7",[1015,760,3540,3147],200,"PK07"],
+["pk","sala","pk14",[365,365,1590,807],80,"Reunião"],
+["pk","sala","pk15",[365,365,1980,807],60,"Manutenção"],
+["pk","sala","pk16",[365,365,2370,807],100,"Copa"],
+["pk","sala","pk17",[365,365,2760,807],80,"WC Prof"],
+["pk","sala","pk18",[178,240,1387,932]],
+["pk","sala","pk19",[178,240,3150,932]],
+["pk","sala","escada1",[178,585,1387,1197]],
+["pk","sala","escada2",[178,585,3150,1197]],
+["pk","sala","escada3",[178,60,1200,1197]],
+["pk","sala","escada4",[178,60,3337,1197]],
+["pk","sala","efici",[1535,400,1590,1197],100,"Lab Eficiencia"],
+["pk","sala","patio",[1535,745,1590,1597],100,"Jardim"],
+["pk","sala","pk20",[365,758,1590,2367],80,"Mestrado"],
+["pk","sala","pk21",[755,758,1980,2367],150,"GICS"],
+["pk","sala","pk22",[365,758,2760,2367],100,"LAR"],
+["pk","sala","pk23",[755,365,1590,3410],100,"Gab 15"],
+["pk","sala","pk24",[755,365,2370,3410],100,"Secretaria"],
+["pl","sala","pl0",[1035,965,15,95],200,"PL01"],
+["pl","sala","pl1",[1035,720,1065,95],200,"PL02"],
+["pl","sala","pl2",[1085,720,2115,95],200,"PL03"],
+["pl","sala","pl3",[385,720,3535,95],100,"Secretaria"],
+["pl","sala","pl4",[685,965,3935,95],200,"PL04"],
+["pl","sala","pl5",[550,230,955,1075],100,"WC Fem"],
+["pl","sala","pl6",[550,230,1723,1075],100,"WC Mas"],
+["pl","sala","pl7",[200,230,3482,1075],50,"Elevador"],
+["pl","sala","piso2",[3215,95,3520,95,3520,830,3920,830,3920,1060,3470,1060,3470,1305,2288,1305,2288,1060,1708,1060,1708,1305,1520,1305,1520,1060,1065,1060,1065,830,3215,830]],
+["pl","sala","plescada",[700,200,2590,1075]],
+["pls","sala","pl8",[1035,965,15,95],200,"LAMMI"],
+["pls","sala","pl9",[335,720,1065,95],100,"Reuniao"],
+["pls","sala","pl10",[1035,720,1415,95],200,"PL05"],
+["pls","sala","pl11",[1055,720,2465,95],200,"PL06"],
+["pls","sala","pl12",[1100,965,3535,95],200,"PL07"],
+["pls","sala","pl7",[200,230,3482,1075],50,"Elevador"],
+["pls","sala","piso3",[3520,1060,3470,1060,3470,1305,2288,1305,2288,1060,1708,1060,1708,1305,1520,1305,1520,1060,1065,1060,1065,830,3520,830]],
+["pls","sala","pl5",[550,230,955,1075],100,"WC Fem"],
+["pls","sala","pl6",[550,230,1723,1075],100,"WC Mas"],
+["pls","sala","plescada",[700,200,2590,1075]],
+["poly","sala","bl_pk",[480,400,0,0],50,"PK"],
+["poly","sala","bl_pk",[465,120,0,440],50,"PL"],
+["poly","sala","bl_pk",[465,160,0,660]],
+["poly","sala","bl_pk",[465,160,0,960]],
+["poly","sala","bl_pk",[533,536,0,1355]],
+//["poly","sala","bl_pk",[700,200,2590,1075],50,"PK"],
+//["poly","sala","bl_pk",[700,200,2590,1075],50,"PK"],
+//["poly","sala","bl_pk",[700,200,2590,1075],50,"PK"],
+//["poly","sala","bl_pk",[700,200,2590,1075],50,"PK"],
+];
+function load(){
+	for(var i=0;i<a.length;i++){
+		if(a[i][3].length==4){
+			h(a[i][0],"<rect class='"+a[i][1]+"' id='"+a[i][2]+"' width='"+a[i][3][0]+"' height='"+a[i][3][1]+"' x='"+a[i][3][2]+"' y='"+a[i][3][3]+"'/>");
+			if(a[i].length>=6)h(a[i][0],"<text x='"+(a[i][3][2]+a[i][3][0]/2)+"' y='"+(a[i][3][3]+a[i][3][1]/2)+"' font-size='"+a[i][4]+"' text-anchor='middle' alignment-baseline='middle'>"+a[i][5]+"</text>");
+		}else{
+			var pontos="",x=y=9999999999,mx=my=-99999999999;
+			for(j=0;j<a[i][3].length;j+=2){
+				pontos+=a[i][3][j]+","+a[i][3][j+1]+" ";
+				if(a[i][3][j]>mx)mx=a[i][3][j];
+				if(a[i][3][j]<x)x=a[i][3][j];
+				if(a[i][3][j+1]>my)my=a[i][3][j+1];
+				if(a[i][3][j+1]<y)y=a[i][3][j+1];
+			}
+			h(a[i][0],"<polygon class='"+a[i][1]+"' id='"+a[i][2]+"' points='"+pontos+"'/>");
+			if(a[i].length>=6)h(a[i][0],"<text x='"+((x+mx)/2)+"' y='"+((y+my)/2)+"' font-size='"+a[i][4]+"' text-anchor='middle' alignment-baseline='middle'>"+a[i][5]+"</text>");
+		}
+	}
+	rot(30,30);
+}
+function rotx(x){
+	x*=Math.PI/180;
+	return [[1,0,0,0],[0,Math.cos(x),-Math.sin(x),0],[0,Math.sin(x),Math.cos(x),0],[0,0,0,1]];
+}
+function roty(x){
+	x*=Math.PI/180;
+	return [[Math.cos(x),0,Math.sin(x),0],[0,1,0,0],[-Math.sin(x),0,Math.cos(x),0],[0,0,0,1]];
+}
+function rotz(x){
+	x*=Math.PI/180;
+	return [[Math.cos(x),-Math.sin(x),0,0],[Math.sin(x),Math.cos(x),0,0],[0,0,1,0],[0,0,0,1]];
+}
+function mul(x,y){
+	var i,j,k,ret=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+	for(i=0;i<4;i++){
+		for(j=0;j<4;j++){
+			for(k=0;k<4;k++)ret[i][j]+= x[k][j]*y[i][k];
+		}
+	}
+	return ret;
+}
+function add(x,y){
+	var i,j,k,ret=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+	for(i=0;i<4;i++){
+		for(j=0;j<4;j++)ret[i][j]=x[i][j]+y[i][j];
+	}
+	return ret;
+}
+function rot(x,z){
+	var o = mul(mul(rotz(z),rotx(x)),[[1,0,0,4000],[0,1,0,2500],[0,0,1,0],[0,0,0,1]]);
+	var m = [[1,0,0,-2000],[0,1,0,-2000],[0,0,1,0],[0,0,0,1]];
+	m = mul(m,o);
+	g("pk").setAttribute("transform","matrix("+m[0][0]+","+m[1][0]+","+m[0][1]+","+m[1][1]+","+m[0][3]+","+m[1][3]+")");
+	
+	m = [[1,0,0,-2000],[0,1,0,4332-2000],[0,0,1,0],[0,0,0,1]];
+	m = mul(m,o);
+	g("pl").setAttribute("transform","matrix("+m[0][0]+","+m[1][0]+","+m[0][1]+","+m[1][1]+","+(m[0][3]+m[0][2])+","+(m[1][3]+m[1][2])+")");
+	
+	m = [[1,0,0,-2000],[0,1,0,-2000],[0,0,1,-1000],[0,0,0,1]];
+	m = mul(m,o);
+	g("pki").setAttribute("transform","matrix("+m[0][0]+","+m[1][0]+","+m[0][1]+","+m[1][1]+","+(m[0][3]+m[0][2])+","+(m[1][3]+m[1][2])+")");
+	
+	m = [[1,0,0,-2000],[0,1,0,4332-2000],[0,0,1,1000],[0,0,0,1]];
+	m = mul(m,o);
+	g("pls").setAttribute("transform","matrix("+m[0][0]+","+m[1][0]+","+m[0][1]+","+m[1][1]+","+(m[0][3]+m[0][2])+","+(m[1][3]+m[1][2])+")");	
+}
+var track=false,lx=0,ly=0,rx=0,rz=0;
+function move(e){
+	if(track){
+		var x=e.clientX-lx, y=e.clientY-ly;
+		x*=0.5;
+		y*=0.5;
+		rz += x;
+		rx += y;
+		if(rx<0)rx=0;
+		if(rx>75)rx=75;
+		if(rz<-180)rz+=360;
+		if(rz>180)rz-=360;
+		rot(rx,rz);
+	}
+	lx=e.clientX;
+	ly=e.clientY;
+}
+</script>
+</head>
+<body onload='load()' onmousemove="move(event)" onmousedown="track=true; " onmouseup="track=false;">
+Use o mouse para rotacionar<br>
+<svg width="9000" height="9000" style='zoom:0.1;'xmlns="http://www.w3.org/2000/svg" >
+ <g id='glob' style='opacity:0'>
+ <g id='pki'>
+  <title>Eletrica Subsolo</title>
+ </g>
+ <g id='pk'>
+  <title>Eletrica Terreo</title>
+ </g>
+ <g id='pl' transform="translate(0,4332)">
+  <title>Eletrica Novo Terreo</title>
+ </g>
+ <g id='pls' transform="translate(0,4332)">
+  <title>Eletrica Novo primeiro andar</title>
+ </g>
+ </g>
+ 
+ <g id='poly' transform="translate(2000,2000)">
+  <title>Eletrica Novo primeiro andar</title>
+ </g>
+</svg>
+</body>
+</html>
